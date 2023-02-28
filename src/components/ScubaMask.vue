@@ -8,6 +8,7 @@
 
   function scubaMaskClicked($event){
   console.log("scuba mask clicked")
+  document.querySelector('#camera-rig').emit('go-under-water');
 }
 
 /*   const randomColor = ref(randomHsl()); */

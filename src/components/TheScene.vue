@@ -83,7 +83,7 @@ function switchView(scene) {
       <!--     <a-entity star-system></a-entity> -->
       <!--     <a-entity position="-30 -1 -85.6" rotation="0 0 0" scale="8 8 8" gltf-model="#scuba"></a-entity> -->
       <ScubaMask id="scubaLeft" scale="10 10 10" gltf-model="#scuba" position="-30 -1 -85.6" />
-      <ScubaMask id="scubaRight" scale="10 10 10" gltf-model="#scuba" position="40 -1 -65.6" />
+      <ScubaMask id="scubaRight" scale="10 10 10" gltf-model="#scuba" position="40 -1 -60.6" />
       <TheTelescope id="telescope" scale="0.05 0.05 0.05" gltf-model="#telescope" position="25 -1 -57.6" />
       <a-entity position="-30 80 -150" rotation="0 90 0" scale="3 3 3" gltf-model="#skyship"></a-entity>
       <a-light type="ambient" color="#fffef7"></a-light>
@@ -92,7 +92,7 @@ function switchView(scene) {
     <button id="switchView" @click="switchOverAndUnderwater($event)">Switcher view</button>
 
     <a-entity v-if="view == 'underwater'">
-      <PortalTeleporter label="Back at the surface" shape="sphere" :x="20" :y="1" :z="-28" material="color: #ffffff"
+      <PortalTeleporter label="Back at the surface" shape="sphere" :x="20" :y="2" :z="-28" material="color: #ffffff"
         position="-30 0.5 -86.6" :rot="0" @click="switchView('onWater')" />
       <TheNavMeshWater scene="underwater" />
       <!--     <TheNavMesh :scene="underwater" /> -->

@@ -42,7 +42,6 @@ setTimeout(()=>{
 
 <template>
   <a-entity
-   listen-to="target : #scubaLeft; emit : go-under-water;"
     @go-under-water="goUnderWater()"
     @view-sky="viewStars()"
 
@@ -61,7 +60,7 @@ setTimeout(()=>{
         camera
         position="0 1.65 0"
       >
-      <a-entity v-if="underwater" position="0 -0.32 -0.28" rotation="0 180 0" scale="8 8 8" gltf-model="#scuba"></a-entity>
+      <a-entity v-if="view=='underwater'" position="0 -0.32 -0.28" rotation="0 180 0" scale="8 8 8" gltf-model="#scuba"></a-entity>
         <a-entity
           geometry="primitive: circle; radius: 0.0003;"
           material="shader: flat; color: white;"
