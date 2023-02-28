@@ -19,7 +19,7 @@ AFRAME.registerComponent('teleport-camera-rig', {
     },
 
     onEvent: function () {
-        setTimeout(() => {
+/*         setTimeout(() => { */
             // Put the rig at the specified position
             this.data.rig.object3D.position.x = this.data.x;
             this.data.rig.object3D.position.y = this.data.y;
@@ -42,8 +42,8 @@ AFRAME.registerComponent('teleport-camera-rig', {
                 quaternion.multiply(quaternionToApply);
                 this.data.rig.object3D.setRotationFromQuaternion(quaternion);
             }
-        }, 250
-        )
+/*         }, 1000
+        ) */
 
     },
 

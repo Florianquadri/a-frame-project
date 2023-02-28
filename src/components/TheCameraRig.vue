@@ -18,12 +18,12 @@
   function goUnderWater(){
     view.value = 'underwater'
     console.log("go under water");
-    position.value = "0 5 -10";
+/*     position.value = "0 0 -10"; */
 
-setTimeout(()=>{
+/* setTimeout(()=>{
   document.querySelector("#head").components["simple-navmesh-constraint"].update();
 }, 100
-)
+) */
   }
 
   function viewStars(){
@@ -44,7 +44,6 @@ setTimeout(()=>{
   <a-entity
     @go-under-water="goUnderWater()"
     @view-sky="viewStars()"
-
     
     id="camera-rig"
     movement-controls="camera: #head; speed:1;"
@@ -55,8 +54,8 @@ setTimeout(()=>{
       <a-entity
         id="head"
         look-controls="pointerLockEnabled: true"
-        simple-navmesh-constraint="navmesh: [data-role='nav-mesh']; height: 1.65;"
-        disable-in-vr="component: simple-navmesh-constraint;"
+        asimple-navmesh-constraint="navmesh: [data-role='nav-mesh']; height: 1.65;"
+        adisable-in-vr="component: simple-navmesh-constraint;"
         camera
         position="0 1.65 0"
       >
@@ -65,8 +64,8 @@ setTimeout(()=>{
           geometry="primitive: circle; radius: 0.0003;"
           material="shader: flat; color: white;"
           cursor
-          raycaster="far: 3; objects: [clickable]; showLine: false;"
-          :position="placePoint"
+          raycaster="far: 10; objects: [clickable]; showLine: false;"
+          position="0 0 -0.1"
           disable-in-vr="component: raycaster; disableInAR: false;"
           hide-in-vr="hideInAR: false"
         ></a-entity>

@@ -15,7 +15,7 @@
 </script>
 
 <template>
-        <a-entity clickable
+        <a-entity clickable teleport-camera-rig="x: 0; y: 0; z: -10; "
         rotation="0 0 0"
         @click=scubaMaskClicked($event)></a-entity>
 
