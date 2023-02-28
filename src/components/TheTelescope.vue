@@ -8,7 +8,7 @@
 
   function telescopeClicked($event){
   console.log("telescope mask clicked")
-  document.querySelector('#camera-rig').emit('view-sky');
+/*   document.querySelector('#camera-rig').emit('view-sky'); */
 }
 
 /*   const randomColor = ref(randomHsl()); */
