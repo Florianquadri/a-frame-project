@@ -1,11 +1,10 @@
 <script setup>
 import { ref } from 'vue';
 import { randomHsl } from '../utils/color.js';
-import { underwater, viewSky } from '../utils/store.js';
+import { underwater, viewSky, view } from '../utils/store.js';
 import * as Environnement from "https://unpkg.com/aframe-environment-component@1.3.2/dist/aframe-environment-component.min.js"
-/* import * as starEnvironnement2 from "https://cdn.rawgit.com/matthewbryancurtis/aframe-star-system-component/db4f1030/index.js" */
 
-import BoxColorChanging from './BoxColorChanging.vue';
+
 import ScubaMask from './ScubaMask.vue'
 import TheTelescope from './TheTelescope.vue'
 import TheCameraRig from './TheCameraRig.vue';
@@ -21,9 +20,6 @@ defineProps({
   overlaySelector: String,
 });
 
-const colorBoxLeft = ref(randomHsl());
-const colorBoxRight = ref(randomHsl());
-const allNightAssetsLoaded = ref(false);
 const allDayAssetsLoaded = ref(false);
 
 function switchOverAndUnderwater($event) {
@@ -34,34 +30,32 @@ function scubaMaskClicked($event) {
   console.log("scuba mask clicked")
 }
 
-function switchPlace($event) {
-  viewSky.value = !viewSky.value;
-  setTimeout(()=>{
-  document.querySelector("#head").components["simple-navmesh-constraint"].update();
-}, 100
-)
-  
+function switchView(scene) {
+  console.log(scene)
+  view.value = scene
+  setTimeout(() => {
+    document.querySelector("#head").components["simple-navmesh-constraint"].update();
+  }, 100
+  )
 }
+
+/* function switchPlace($event) {
+  viewSky.value = !viewSky.value;
+} */
 
 
 </script>
 
 <template>
   <a-scene background="color: black;" renderer="colorManagement: true;" :webxr="`
-                      requiredFeatures: local-floor;
-                      referenceSpaceType: local-floor;
-                      optionalFeatures: dom-overlay;
-                      overlayElement: ${overlaySelector};
-                    `">
+                          requiredFeatures: local-floor;
+                          referenceSpaceType: local-floor;
+                          optionalFeatures: dom-overlay;
+                          overlayElement: ${overlaySelector};
+                        `">
 
     <a-assets @loaded="allDayAssetsLoaded = true">
-      <!--
-                Title: VR Gallery
-                Model source: https://sketchfab.com/3d-models/vr-gallery-1ac32ed62fdf424498acc146fad31f7e
-                Model author: https://sketchfab.com/mvrc.art (Maxim Mavrichev)
-                Model license: CC BY 4.0 ( https://creativecommons.org/licenses/by/4.0/ )
-              -->
-      <!--       <a-asset-item  id="room" src="assets/vr_gallery.glb"></a-asset-item> -->
+
       <a-asset-item id="porsche" src="assets/porsche_low.glb"></a-asset-item>
       <a-asset-item id="telescope" src="assets/telescope.glb"></a-asset-item>
       <a-asset-item id="sea" src="assets/low_poly_island.glb"></a-asset-item>
@@ -79,12 +73,12 @@ function switchPlace($event) {
       <a-asset-item id="mercury" src="assets/mercury.glb"></a-asset-item>
     </a-assets>
 
-    <a-entity v-if="allDayAssetsLoaded && !underwater && !viewSky">
-      <TheNavMesh :scene="onWater" />
+    <a-entity v-if="allDayAssetsLoaded && view == 'onWater'">
+      <TheNavMesh scene="onWater" />
       <a-entity environment="preset: starry; ground : none;"></a-entity>
       <a-entity position="0 -1 -50" scale="1 1 1" rotation="0 90 0" gltf-model="#porsche"></a-entity>
       <!--     <a-entity position="0 -5.5 20" rotation="0 90 0" scale="7 7 7" gltf-model="#sea"></a-entity>
-      <a-entity position="-50 -5.5 20" rotation="0 90 0" scale="7 7 7" gltf-model="#sea"></a-entity> -->
+        <a-entity position="-50 -5.5 20" rotation="0 90 0" scale="7 7 7" gltf-model="#sea"></a-entity> -->
       <a-entity position="30 -18 -160" rotation="0 180 0" scale="8 8 8" gltf-model="#sea2"></a-entity>
       <!--     <a-entity star-system></a-entity> -->
       <!--     <a-entity position="-30 -1 -85.6" rotation="0 0 0" scale="8 8 8" gltf-model="#scuba"></a-entity> -->
@@ -92,28 +86,28 @@ function switchPlace($event) {
       <ScubaMask id="scubaRight" scale="10 10 10" gltf-model="#scuba" position="40 -1 -65.6" />
       <TheTelescope id="telescope" scale="0.05 0.05 0.05" gltf-model="#telescope" position="25 -1 -57.6" />
       <a-entity position="-30 80 -150" rotation="0 90 0" scale="3 3 3" gltf-model="#skyship"></a-entity>
-    <a-light type="ambient" color="#fffef7"></a-light>
-  </a-entity>
+      <a-light type="ambient" color="#fffef7"></a-light>
+    </a-entity>
 
-  <button id="switchView" @click="switchOverAndUnderwater($event)">Switcher view</button>
+    <button id="switchView" @click="switchOverAndUnderwater($event)">Switcher view</button>
 
-  <a-entity v-if="underwater">
+    <a-entity v-if="view == 'underwater'">
+      <PortalTeleporter label="Back at the surface" shape="sphere" :x="20" :y="1" :z="-28" material="color: #ffffff"
+        position="-30 0.5 -86.6" :rot="0" @click="switchView('onWater')" />
+      <TheNavMeshWater scene="underwater" />
+      <!--     <TheNavMesh :scene="underwater" /> -->
+      <a-entity position="-50 1 -12" rotation="0 -80 0" scale="150 150 150" gltf-model="#nightDive"></a-entity>
+      <a-entity position="0 0 -4" rotation="0 0 0" scale="1 1 1" gltf-model="#coralfish"></a-entity>
+      <a-sky color="white"></a-sky>
+      <a-light color="white" position="0 3 50"></a-light>
+      <!--     <a-light type="ambient" color="#fffef7"></a-light> -->
+    </a-entity>
 
-    <TheNavMeshWater :scene="underwater" />
-    <!--     <TheNavMesh :scene="underwater" /> -->
-    <a-entity position="-50 1 -12" rotation="0 -80 0" scale="150 150 150" gltf-model="#nightDive"></a-entity>
-    <a-entity position="0 0 -4" rotation="0 0 0" scale="1 1 1" gltf-model="#coralfish"></a-entity>
-    <a-sky color="#0d1319"></a-sky>
-    <a-light type="probe" envMap="#pisa"></a-light>
-    <a-light color="white" position="0 3 -500"></a-light>
-    <!--     <a-light type="ambient" color="#fffef7"></a-light> -->
-  </a-entity>
-
-    <a-entity v-if="viewSky" postion="0 0 0">
-      <PortalTeleporter label="Back to the beach" :x="25" :y="1" :z="-45" material="color: #ffffff" position="25 1 -65.6" rotation="0 0 0"
-      :rot="0" @click="switchPlace()" />
+    <a-entity v-if="view == 'sky'" postion="0 0 0">
+      <PortalTeleporter shape="sphere" label="Back to the beach" :x="25" :y="1" :z="-53.6" material="color: #ffffff"
+        position="25 1 -65.6" rotation="0 0 0" :rot="0" @click="switchView('onWater')" />
       <!--     <TheNavMesh :scene="sky" /> -->
-      <TheNavMeshSky :scene="sky" />
+      <TheNavMeshSky scene="sky" />
       <a-entity position="25 -1 -57.6" rotation="0 0 0" scale="4 4 4" gltf-model="#starsView"></a-entity>
       <a-entity position="24 1.5 -58.6" rotation="0 90 0" scale="0.1 0.1 0.1" gltf-model="#skyship"></a-entity>
       <a-entity position="28 2 -58.6" rotation="0 90 0" scale="0.2 0.2 0.2" gltf-model="#moon"></a-entity>
@@ -127,30 +121,6 @@ function switchPlace($event) {
       <a-sphere id="uranus" color="#aec1c8" radius="0.5" position="28.103 1.870 -44.456" rotation="90 90 0"></a-sphere>
 
     </a-entity>
-
-
-
-
-    <!--  
-
-              <BoxColorChanging
-                id="box-left"
-                :scale="scale"
-                :color="colorBoxLeft"
-                position="7 0.5 -3"
-                @click="colorBoxRight = randomHsl()"
-              />
-
-              <BoxColorChanging
-                id="box-right"
-                :scale="scale"
-                :color="colorBoxRight"
-                position="7 0.5 3"
-                @click="colorBoxLeft = randomHsl()"
-              />
-            </a-entity> -->
-
-
 
     <TheCameraRig />
 

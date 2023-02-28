@@ -7,12 +7,13 @@
     y: {type: Number, default: 0},
     z: {type: Number, default: 0},
     rot: {type: [Number, Boolean], default: false},
+    shape:{type: String, default: 'circle'}
   });
 </script>
 
 <template>
   <a-entity
-    geometry="primitive: sphere; radius: 1"
+    :geometry="`primitive: ${shape}; radius: 1`"
     clickable
     :teleport-camera-rig="`
       x: ${x};

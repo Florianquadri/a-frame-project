@@ -5,7 +5,7 @@
   import '../aframe/blink-controls';
   import '../aframe/event-set';
   import '../aframe/listen-to';
-  import {underwater, viewSky} from '../utils/store.js';
+  import {underwater, viewSky, view} from '../utils/store.js';
   import {ref, computed, watchEffect} from 'vue';
 
   const placePoint = computed(() => underwater.value == false ? "0 0 -0.1" : "-0.1 0 -0.1");
@@ -16,9 +16,10 @@
   const position = ref("0 0 0");
 
   function goUnderWater(){
+    view.value = 'underwater'
     console.log("go under water");
     position.value = "0 5 -10";
-    underwater.value = true;
+
 setTimeout(()=>{
   document.querySelector("#head").components["simple-navmesh-constraint"].update();
 }, 100
@@ -27,10 +28,8 @@ setTimeout(()=>{
 
   function viewStars(){
     console.log("view sky");
+    view.value='sky'
 /*     position.value = "0 0 0"; */
-    underwater.value = false;
-    viewSky.value = true;
-/*     document.querySelector("#head").setAttribute("simple-navmesh-constraint", "height","1.64") */
 setTimeout(()=>{
   document.querySelector("#head").components["simple-navmesh-constraint"].update();
 }, 100
@@ -57,8 +56,8 @@ setTimeout(()=>{
       <a-entity
         id="head"
         look-controls="pointerLockEnabled: true"
-        asimple-navmesh-constraint="navmesh: [data-role='nav-mesh']; height: 1.65;"
-        adisable-in-vr="component: simple-navmesh-constraint;"
+        simple-navmesh-constraint="navmesh: [data-role='nav-mesh']; height: 1.65;"
+        disable-in-vr="component: simple-navmesh-constraint;"
         camera
         position="0 1.65 0"
       >
