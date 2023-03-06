@@ -43,11 +43,11 @@ function scubaMaskClicked($event) {
 
 <template>
   <a-scene background="color: black;" renderer="colorManagement: true;" :webxr="`
-                          requiredFeatures: local-floor;
-                          referenceSpaceType: local-floor;
-                          optionalFeatures: dom-overlay;
-                          overlayElement: ${overlaySelector};
-                        `">
+                              requiredFeatures: local-floor;
+                              referenceSpaceType: local-floor;
+                              optionalFeatures: dom-overlay;
+                              overlayElement: ${overlaySelector};
+                            `">
 
     <a-assets @loaded="allDayAssetsLoaded = true">
 
@@ -66,6 +66,7 @@ function scubaMaskClicked($event) {
       <a-asset-item id="neptune" src="assets/neptune.glb"></a-asset-item>
       <a-asset-item id="venus" src="assets/venus.glb"></a-asset-item>
       <a-asset-item id="mercury" src="assets/mercury.glb"></a-asset-item>
+      <a-asset-item id="rope" src="assets/rope.glb"></a-asset-item>
     </a-assets>
 
     <a-entity v-if="allDayAssetsLoaded && view == 'onWater'">
@@ -73,7 +74,7 @@ function scubaMaskClicked($event) {
     </a-entity>
 
     <a-entity v-if="view == 'underwater'">
-<TheUnderwaterView></TheUnderwaterView>
+      <TheUnderwaterView></TheUnderwaterView>
     </a-entity>
 
     <a-entity v-if="view == 'sky'">
