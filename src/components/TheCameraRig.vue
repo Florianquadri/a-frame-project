@@ -65,12 +65,12 @@ setTimeout(()=>{
         camera
         position="0 1.65 0"
       >
-      <a-entity v-if="view=='underwater'" position="0 -0.32 -0.28" rotation="0 180 0" scale="8 8 8" gltf-model="#scuba"></a-entity>
+      <a-entity v-if="view=='underwater'" position="0 -0.045 -0.03" rotation="0 180 0" scale="1 1 1" gltf-model="#scuba"></a-entity>
         <a-entity
           geometry="primitive: circle; radius: 0.0003;"
           material="shader: flat; color: white;"
           cursor
-          raycaster="far: 10; objects: [clickable]; showLine: false;"
+          raycaster="far: 25; objects: [clickable]; showLine: false;"
           position="0 0 -0.1"
           disable-in-vr="component: raycaster; disableInAR: false;"
           hide-in-vr="hideInAR: false"
