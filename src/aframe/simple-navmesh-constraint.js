@@ -50,6 +50,7 @@ AFRAME.registerComponent('simple-navmesh-constraint', {
   },
 
   update: function () {
+    console.log("je suis passé par là")
     this.lastPosition = null;
     this.excludes = this.data.exclude ? Array.from(document.querySelectorAll(this.data.exclude)):[];
     const els = Array.from(document.querySelectorAll(this.data.navmesh));

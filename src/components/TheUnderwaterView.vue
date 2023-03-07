@@ -8,7 +8,7 @@ import {view, switchView } from '../utils/store.js';
 </script>
 
 <template>
- <PortalTeleporter label="Back at the surface" shape="sphere" :x="-30" :y="2.5" :z="-82.6" material="color: #ffffff"
+ <PortalTeleporter label="Back at the surface" shape="sphere" :x="-30" :y="0.5" :z="-82.6" material="color: #ffffff"
         position="-30 0.5 -86.6" :rot="0" @click="switchView('onWater')" />
       <TheNavMeshWater scene="underwater" />
       <!--     <TheNavMesh :scene="underwater" /> -->

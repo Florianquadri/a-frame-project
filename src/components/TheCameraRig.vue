@@ -13,7 +13,7 @@
     console.log(placePoint.value);
   });
 
-  const position = ref("0 0 0");
+  const position = ref("0 0 10");
 
   function goUnderWater(){
     view.value = 'underwater'
@@ -38,23 +38,29 @@ setTimeout(()=>{
     //changer de scène
   }
 
+  function testAsc(){
+    console.log("test asc")
+  }
+
 </script>
 
 <template>
   <a-entity
     @go-under-water="goUnderWater()"
     @view-sky="viewStars()"
+    @go-on-spaceship="$event=>testAsc()"
+    animation="property: object3D.position.y;to:80; dur: 10000; easing: linear; loop: false; startEvents:go-on-spaceship;"
     
     id="camera-rig"
     movement-controls="camera: #head; speed:1;"
     disable-in-vr="component: movement-controls;"
-    :position="position"
+    position="0 0 10"
   >
 
       <a-entity
         id="head"
         look-controls="pointerLockEnabled: true"
-        asimple-navmesh-constraint="navmesh: [data-role='nav-mesh']; height: 1.65;"
+        asimple-navmesh-constraint="navmesh: [data-role='nav-mesh']; height: 1.65; fall:1;"
         adisable-in-vr="component: simple-navmesh-constraint;"
         camera
         position="0 1.65 0"

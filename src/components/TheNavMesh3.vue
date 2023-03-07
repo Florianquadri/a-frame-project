@@ -10,13 +10,6 @@
     scene: String,
   });
 
-/*   const whichScene = ref(scene); */
-/*   const myNavMesh = computed(()=>{
-    if(scene.value == "onWater"){
-      return "onWater"
-    }
-  }) */
-
 
 </script>
 
@@ -28,7 +21,7 @@
     position="-50 0 0"
     rotation="-90 0 0"
     data-role="nav-mesh"
-    material="color: white"
+    material="color: red"
     visible="false"
   ></a-entity>
 

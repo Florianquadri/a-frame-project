@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import { randomHsl } from '../utils/color.js';
-import { underwater, viewSky, view, switchView } from '../utils/store.js';
+import { underwater, viewSky, view, switchView, inMySpaceship } from '../utils/store.js';
 import * as Environnement from "https://unpkg.com/aframe-environment-component@1.3.2/dist/aframe-environment-component.min.js"
 
 
@@ -15,6 +15,7 @@ import PortalTeleporter from './PortalTeleporter.vue';
 import TheBeachView from './TheBeachView.vue';
 import TheSkyView from './TheSkyView.vue';
 import TheUnderwaterView from './TheUnderwaterView.vue';
+import TheSpaceshipView from './TheSpaceshipView.vue';
 
 
 import '../aframe/life-like-automaton';
@@ -67,10 +68,15 @@ function scubaMaskClicked($event) {
       <a-asset-item id="venus" src="assets/venus.glb"></a-asset-item>
       <a-asset-item id="mercury" src="assets/mercury.glb"></a-asset-item>
       <a-asset-item id="rope" src="assets/rope.glb"></a-asset-item>
+      <a-asset-item id="platform" src="assets/platform.glb"></a-asset-item>
+      <a-asset-item id="spaceshipInterior" src="assets/spaceshipInterior4.glb"></a-asset-item>
+      <a-asset-item id="fox" src="assets/victory_final.glb"></a-asset-item>
+      
     </a-assets>
 
     <a-entity v-if="allDayAssetsLoaded && view == 'onWater'">
       <TheBeachView></TheBeachView>
+      <TheSpaceshipView v-if="inMySpaceship"></TheSpaceshipView>
     </a-entity>
 
     <a-entity v-if="view == 'underwater'">

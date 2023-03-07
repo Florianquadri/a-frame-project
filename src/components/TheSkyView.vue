@@ -8,7 +8,7 @@ import PortalTeleporter from './PortalTeleporter.vue';
 </script>
 
 <template>
- <PortalTeleporter shape="sphere" label="Back to the beach" :x="25" :y="1" :z="-48.6" material="color: #ffffff"
+ <PortalTeleporter shape="sphere" label="Back to the beach" :x="25" :y="1" :z="-46.6" material="color: #ffffff"
         position="25 1 -65.6" rotation="0 0 0" :rot="0" @click="switchView('onWater')" />
       <!--     <TheNavMesh :scene="sky" /> -->
       <TheNavMeshSky scene="sky" />
