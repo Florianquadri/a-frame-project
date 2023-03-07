@@ -9,6 +9,9 @@ import { ref } from 'vue';
 function spaceshipClicked($event) {
   console.log("spaceship is clicked")
   inMySpaceship.value = true;
+  setTimeout(() => {
+      document.querySelector("#head").setAttribute("simple-navmesh-constraint", "enabled", true);
+    }, 500)
   /*    document.querySelector('#camera-rig').emit('go-on-spaceship'); */
 }
 

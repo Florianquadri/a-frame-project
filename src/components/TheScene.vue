@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import { randomHsl } from '../utils/color.js';
-import { underwater, viewSky, view, switchView, inMySpaceship } from '../utils/store.js';
+import { underwater, viewSky, view, switchView, inMySpaceship} from '../utils/store.js';
 import * as Environnement from "https://unpkg.com/aframe-environment-component@1.3.2/dist/aframe-environment-component.min.js"
 
 
@@ -71,6 +71,7 @@ function scubaMaskClicked($event) {
       <a-asset-item id="platform" src="assets/platform.glb"></a-asset-item>
       <a-asset-item id="spaceshipInterior" src="assets/spaceshipInterior4.glb"></a-asset-item>
       <a-asset-item id="fox" src="assets/victory_final.glb"></a-asset-item>
+      <a-asset-item id="wave-sound" response-type="arraybuffer" src="assets/ocean.mp3" preload="auto"></a-asset-item>
       
     </a-assets>
 

@@ -5,6 +5,7 @@
   import '../aframe/blink-controls';
   import '../aframe/event-set';
   import '../aframe/listen-to';
+  import '../aframe/teleport-camera-rig';
   import {underwater, viewSky, view} from '../utils/store.js';
   import {ref, computed, watchEffect} from 'vue';
 
@@ -40,16 +41,18 @@ setTimeout(()=>{
 
   function testAsc(){
     console.log("test asc")
+    document.querySelector("#head").setAttribute("simple-navmesh-constraint", "enabled", false);
   }
 
 </script>
 
 <template>
   <a-entity
-    @go-under-water="goUnderWater()"
+    @go-under-water="goUnderWater()" 
+    teleport-camera-rig="on:go-on-spaceship; x:-55; y:3; z:-147;"
     @view-sky="viewStars()"
     @go-on-spaceship="$event=>testAsc()"
-    animation="property: object3D.position.y;to:80; dur: 10000; easing: linear; loop: false; startEvents:go-on-spaceship;"
+    animation="property: object3D.position.y;to:81; dur: 10000; easing: linear; loop: false; startEvents:go-on-spaceship;"
     
     id="camera-rig"
     movement-controls="camera: #head; speed:1;"
@@ -60,7 +63,7 @@ setTimeout(()=>{
       <a-entity
         id="head"
         look-controls="pointerLockEnabled: true"
-        asimple-navmesh-constraint="navmesh: [data-role='nav-mesh']; height: 1.65; fall:1;"
+        simple-navmesh-constraint="navmesh: [data-role='nav-mesh']; height: 1.65; fall:1;"
         adisable-in-vr="component: simple-navmesh-constraint;"
         camera
         position="0 1.65 0"

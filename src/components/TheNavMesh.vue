@@ -167,6 +167,14 @@
     material="color: red"
     visible="false"
   ></a-entity>
+  <a-entity
+    geometry="primitive: plane; height: 37; width: 70"
+    position="-70 120 -149"
+    rotation="-90 0 0"
+    data-role="nav-mesh"
+    material="color: red"
+    visible="false"
+  ></a-entity>
 <!--   <a-entity v-if="onPlatform"
     geometry="primitive: circle; radius:7.5"
     position="-53 0 -150"

@@ -14,7 +14,7 @@
 /*   onPlatform.value=true; */
    document.querySelector('#camera-rig').emit('go-on-spaceship');
   ascIsClicked.value = true;
-  detailsAnimation.value = "property: position; to: -53 80 -150; dur: 10000; easing: linear; loop: false"
+  detailsAnimation.value = "property: position; to: -53 81 -150; dur: 10000; easing: linear; loop: false"
   /*   detailsAnimation.value = "property: position; to: -70 80 -147; dur: 10000; easing: linear; loop: false" */
 }
 

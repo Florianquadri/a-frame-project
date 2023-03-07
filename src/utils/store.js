@@ -4,6 +4,7 @@ export const viewSky = ref(false);
 export const view = ref('onWater');
 export const inMySpaceship = ref(false);
 export const onPlatform=ref(false);
+export const showOnboarding =ref(true);
 export function switchView(scene) {
     console.log(4352523)
     view.value = scene

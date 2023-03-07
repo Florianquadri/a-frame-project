@@ -1,16 +1,18 @@
 <script setup>
   import { ref } from 'vue';
+  import {showOnboarding} from '../utils/store.js';
 
   defineProps({
     loaded: Boolean,
   });
 
-  const showOnboarding = ref(true);
+/*   const showOnboarding = ref(true); */
 
   function enterScene() {
     showOnboarding.value = false;
     if (AFRAME.utils.device.checkHeadsetConnected() && !AFRAME.utils.device.isMobile()) {
       document.querySelector('a-scene').enterVR();
+      console.log("test bouton")
     }
   }
 </script>
