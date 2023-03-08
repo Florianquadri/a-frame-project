@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from 'vue';
-import { randomHsl } from '../utils/color.js';
 import { underwater, viewSky, view, switchView, inMySpaceship} from '../utils/store.js';
 import * as Environnement from "https://unpkg.com/aframe-environment-component@1.3.2/dist/aframe-environment-component.min.js"
 
@@ -27,18 +26,9 @@ defineProps({
 
 const allDayAssetsLoaded = ref(false);
 
-function switchOverAndUnderwater($event) {
-  underwater.value = !underwater.value;
-}
-
 function scubaMaskClicked($event) {
   console.log("scuba mask clicked")
 }
-
-/* function switchPlace($event) {
-  viewSky.value = !viewSky.value;
-} */
-
 
 </script>
 
