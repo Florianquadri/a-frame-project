@@ -4,16 +4,15 @@
   import '../aframe/clickable';
 
   import { ref } from 'vue';
-  import {onPlatform} from '../utils/store.js'
+  import {onPlatform, ascIsClicked} from '../utils/store.js'
   
   const detailsAnimation = ref(null);
-  const ascIsClicked = ref(false);
 
   function ascClicked($event){
   console.log("ascenseur is clicked clicked")
 /*   onPlatform.value=true; */
    document.querySelector('#camera-rig').emit('go-on-spaceship');
-  ascIsClicked.value = true;
+   ascIsClicked.value = true;
   detailsAnimation.value = "property: position; to: -53 81 -150; dur: 10000; easing: linear; loop: false"
   /*   detailsAnimation.value = "property: position; to: -70 80 -147; dur: 10000; easing: linear; loop: false" */
 }

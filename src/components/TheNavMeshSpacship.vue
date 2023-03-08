@@ -22,12 +22,12 @@
 
 <template>
  
-  <a-entity v-if="scene='sky'"
-    geometry="primitive: circle; radius:12"
-    position="25 0 -52.6"
+ <a-entity
+    geometry="primitive: plane; height: 135; width: 35"
+    position="190.648 0.01 -240.669"
     rotation="-90 0 0"
     data-role="nav-mesh"
-    material="color: red"
+    material="color: green"
     visible="false"
   ></a-entity>
 

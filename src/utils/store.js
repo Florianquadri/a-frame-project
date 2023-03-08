@@ -5,6 +5,9 @@ export const view = ref('onWater');
 export const inMySpaceship = ref(false);
 export const onPlatform=ref(false);
 export const showOnboarding =ref(true);
+export const ascIsClicked = ref(false);
+export const telescopeIsClicked = ref(false);
+export const positionAsc = ref("-55 0 -147");
 export function switchView(scene) {
     console.log(4352523)
     view.value = scene

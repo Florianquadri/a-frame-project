@@ -72,7 +72,10 @@ function scubaMaskClicked($event) {
       <a-asset-item id="spaceshipInterior" src="assets/spaceshipInterior4.glb"></a-asset-item>
       <a-asset-item id="fox" src="assets/victory_final.glb"></a-asset-item>
       <a-asset-item id="wave-sound" response-type="arraybuffer" src="assets/ocean.mp3" preload="auto"></a-asset-item>
-      
+      <a-asset-item id="elevator" response-type="arraybuffer" src="assets/elevator.mp3" preload="auto"></a-asset-item>
+      <a-asset-item id="star-song" response-type="arraybuffer" src="assets/starsSong.mp3" preload="auto"></a-asset-item>
+      <a-asset-item id="underwater-song" response-type="arraybuffer" src="assets/underwater.mp3" preload="auto"></a-asset-item>
+      <a-asset-item id="victory-song" response-type="arraybuffer" src="assets/victory.mp3" preload="auto"></a-asset-item>
     </a-assets>
 
     <a-entity v-if="allDayAssetsLoaded && view == 'onWater'">

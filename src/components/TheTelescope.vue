@@ -2,12 +2,13 @@
 import '../aframe/emit-when-near';
 import '../aframe/event-set';
 import '../aframe/clickable';
-import { switchView } from '../utils/store.js'
+import { switchView, telescopeIsClicked } from '../utils/store.js'
 
 import { ref } from 'vue';
 
 
 function telescopeClicked($event) {
+  telescopeIsClicked.value = true;
   console.log("telescope mask clicked")
   /*   document.querySelector('#camera-rig').emit('view-sky'); */
   switchView("sky")
