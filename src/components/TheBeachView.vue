@@ -7,7 +7,7 @@ import TheTelescope from './TheTelescope.vue';
 /* import TheCorde from './TheCorde.vue'; */
 import TheAscenceur from './TheAscenceur.vue'
 import TheSpaceship from './TheSpaceship.vue'
-import { view, showOnboarding, ascIsClicked, positionAsc } from '../utils/store.js';
+import { view, showOnboarding, ascIsClicked } from '../utils/store.js';
 import '../aframe/emit-when-near';
 
 const textIntro = ref(false)
@@ -34,11 +34,6 @@ function showTextIntro2() {
   <a-text v-if="textIntro2" align="center" value="CHILL" position="-2 1.5 -10"></a-text>
   <a-text v-if="textIntro2" align="center" value="EXPLORE " position="0 1.5 -7"></a-text>
   <a-text v-if="textIntro2" align="center" value="& ESCAPE..." position="2 1.5 -10"></a-text>
-  <!--   <a-box color="red" depth="2" height="3" width="5" position="0 1.6 -14.827" visible="false"
-      emit-when-near=" event: showTextValue;"
-      sound="src: #kass; loop:true; on: showTextValue;  volume: 0.1; refDistance: 5; rolloffFactor: 1 "  
-      @showTextValue=" OpenIntro()"
-      ></a-box> -->
   <a-entity scale="2 2 2" environment="preset: starry; ground : none;"></a-entity>
   <a-entity position="0 -1 -50" scale="1 1 1" rotation="0 90 0" gltf-model="#porsche"></a-entity>
   <a-entity position="30 -18 -160" rotation="0 180 0" scale="8 8 8" gltf-model="#sea2"></a-entity>
@@ -49,14 +44,15 @@ function showTextIntro2() {
     light="type: spot; angle: 60; color:red; intensity:10; target:#scubaRight; decay:500;"></a-entity>
   <a-entity position="25 2 -57.6"
     light="type: spot; angle: 60; color:red; intensity:10; target:#telescopee; decay:500;"></a-entity>
-
-  <!--     <a-entity star-system></a-entity> -->
-  <!--     <a-entity position="-30 -1 -85.6" rotation="0 0 0" scale="8 8 8" gltf-model="#scuba"></a-entity> -->
   <ScubaMask id="scubaLeft" scale="10 10 10" gltf-model="#scuba" position="-30 -1 -85.6" :x="-30" :z="-85.6" />
   <ScubaMask id="scubaRight" scale="10 10 10" gltf-model="#scuba" position="40 -1 -60.6" />
+  <a-entity position="25 7 -59.6" id="arrowPoint" gltf-model="#arrow-point" rotation="-15 -75 280" scale="0.01 0.01 0.01"
+  animation="property: position; to: 25 8.5 -59.6; dur: 1500; easing: linear; loop: true; dir:alternate;"></a-entity>
+  <a-text align="center" rotation=" 0 10 0" value="Click to interact" position="25 8.8 -59.6"
+  animation="property: position; to: 25 10.3 -59.6; dur: 1500; easing: linear; loop: true; dir:alternate;"></a-text>
   <TheTelescope id="telescopee" scale="0.05 0.05 0.05" gltf-model="#telescope" position="25 -1 -57.6" />
   <TheSpaceship id="vaisseau" position="-55 80 -147" rotation="0 90 0" scale="3 3 3" gltf-model="#skyship"></TheSpaceship>
-  <TheAscenceur :position="positionAsc" scale="3 3 3" gltf-model="#platform"></TheAscenceur>
+  <TheAscenceur id="myElevator" position="-55 0 -147" scale="3 3 3" gltf-model="#platform"></TheAscenceur>
   <!--   <TheCorde id="corde" position="-53 40 -150" scale="2 8 2" gltf-model="#rope"></TheCorde> -->
   <a-entity position="-55 1 -147" id="plateformEmplacement"></a-entity>
   <a-entity position="-55 6 -147"

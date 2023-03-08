@@ -5,7 +5,7 @@ import TheNavMesh from './TheNavMesh.vue';
 import TheAscenceur from './TheAscenceur.vue'
 import PortalTeleporter from './PortalTeleporter.vue';
 import TheSpaceship from './TheSpaceship.vue'
-import { view, inMySpaceship, positionAsc } from '../utils/store.js';
+import { view, inMySpaceship, detailsAnimation } from '../utils/store.js';
 import { ref } from 'vue';
 const foxAnimation = ref(null)
 const foxAnimationRotation = ref(null)
@@ -22,9 +22,11 @@ function foxClicked() {
 }
 
 function back2Beginning(){
-  positionAsc.value = "-55 0 -147";
+  console.log("back2beginning")
+  document.querySelector('#myElevator').setAttribute('position', '-55 0 -147')
+
   inMySpaceship.value = false;
-  switchView('onWater')
+/*   switchView('onWater') */
 }
 
 </script>
