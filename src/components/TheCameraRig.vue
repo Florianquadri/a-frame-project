@@ -19,24 +19,17 @@
   function goUnderWater(){
     view.value = 'underwater'
     console.log("go under water");
-/*     position.value = "0 0 -10"; */
 
-/* setTimeout(()=>{
-  document.querySelector("#head").components["simple-navmesh-constraint"].update();
-}, 100
-) */
   }
 
   function viewStars(){
     console.log("view sky");
     view.value='sky'
-/*     position.value = "0 0 0"; */
 setTimeout(()=>{
   document.querySelector("#head").components["simple-navmesh-constraint"].update();
 }, 100
 )
 
-    //changer de scène
   }
 
   function testAsc(){
@@ -69,7 +62,6 @@ setTimeout(()=>{
         position="0 1.65 0"
       >
       <a-entity v-if="view=='underwater'" position="0 -0.26 -0.17" rotation="0 180 0" scale="4.8 6 6" gltf-model="#scuba"></a-entity>
-<!--       <a-entity v-if="view=='underwater'" position="0.01 -0.332 -0.28" rotation="0 180 0" scale="8 8 8" gltf-model="#scuba"></a-entity> -->
         <a-entity
           geometry="primitive: circle; radius: 0.0003;"
           material="shader: flat; color: white;"

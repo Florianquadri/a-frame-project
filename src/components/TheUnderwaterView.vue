@@ -25,5 +25,4 @@ import {view, switchView } from '../utils/store.js';
       <a-light color="white" position="0 3 50"></a-light>
       <a-entity v-if="view='underwater'" sound="src:#underwater-song; autoplay: true ; maxDistance: 300; loop: true; volume: 30;"
     position="0 -122.3 -5"></a-entity>
-      <!--     <a-light type="ambient" color="#fffef7"></a-light> -->
 </template>

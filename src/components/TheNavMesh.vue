@@ -175,41 +175,6 @@
     material="color: red"
     visible="false"
   ></a-entity>
-<!--   <a-entity v-if="onPlatform"
-    geometry="primitive: circle; radius:7.5"
-    position="-53 0 -150"
-    rotation="-90 0 0"
-    data-role="nav-mesh"
-    material="color: red"
-    visible="true"
-  ></a-entity> -->
-  
 
 </a-entity>
-
-
-
-<!--   <a-entity v-if="scene='sky'"
-    geometry="primitive: circle; radius:50"
-    position="25 -1 -57.6"
-    rotation="-90 0 0"
-    data-role="nav-mesh"
-    material="color: red"
-    visible="false"
-  ></a-entity>
-
-  <a-entity v-if="scene='underwater'">
-    <a-entity
-    geometry="primitive: plane; height: 80; width: 80"
-    position="30 0.01 11.75"
-    rotation="-90 0 0"
-    data-role="nav-mesh"
-    material="color: blue"
-    visible="false"
-  ></a-entity>
-
-  </a-entity> -->
-  
-
-
 </template>

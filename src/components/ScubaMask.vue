@@ -27,8 +27,6 @@
   switchView("underwater")
 /*   document.querySelector('#camera-rig').emit('go-under-water'); */
 }
-
-/*   const randomColor = ref(randomHsl()); */
 </script>
 
 <template>

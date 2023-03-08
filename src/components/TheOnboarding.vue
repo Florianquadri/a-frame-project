@@ -21,6 +21,7 @@
   <div id="onboarding" v-if="showOnboarding">
     <div>
       <h1>Lost on the Island</h1>
+      <p>Your ship has sunk in the ocean. You are the only survivant, on a lost island. Welcome on paradise ...</p>
       <p v-if="!loaded">loading...</p>
       <button v-if="loaded" @click="enterScene()">Enter the game</button>
       <div class="licences">

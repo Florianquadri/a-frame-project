@@ -24,11 +24,9 @@ function foxClicked() {
 function back2Beginning(){
   console.log("back2beginning")
   document.querySelector('#myElevator').setAttribute('position', '-55 0 -147')
-
   inMySpaceship.value = false;
 /*   switchView('onWater') */
 }
-
 </script>
 
 <template>

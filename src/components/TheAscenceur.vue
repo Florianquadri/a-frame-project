@@ -15,12 +15,10 @@
    event.target.removeAttribute('animation')
    event.target.setAttribute('animation','property: position; to: -53 81 -150; dur: 10000; easing: linear; loop: false')
 }
-
 </script>
 
 <template>
   <a-entity id="ascMove" clickable @click=ascClicked($event)
-      >
-      
+      >  
       </a-entity>
 </template>
