@@ -142,6 +142,12 @@
           </dt><dd>
             by <a href="https://sketchfab.com/KDT7" target="_blank">KDT7></a>
           </dd>
+
+          <dt>
+            <a href="https://sketchfab.com/3d-models/red-betta-fish-e088615fe2934a92be6316782d25f93a" target="_blank">Red fish</a>
+          </dt><dd>
+            by <a href="https://sketchfab.com/elqui" target="_blank">Elinor Quittner></a>
+          </dd>
         </dl>
       </div>
     </div>

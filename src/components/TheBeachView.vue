@@ -58,7 +58,7 @@ function showTextIntro2() {
   <a-entity position="-55 6 -147"
     light="type: spot; angle: 60; color:#ffffff; intensity:3; target:#plateformEmplacement; decay:500;"></a-entity>
   <a-light type="ambient" color="#fffef7"></a-light>
-  <a-entity v-if="!showOnboarding" sound="src:#wave-sound; autoplay: true ; maxDistance: 300; loop: true; volume: 35;"
+  <a-entity v-if="!showOnboarding" sound="src:#wave-sound; autoplay: true ; maxDistance: 300; loop: true; volume: 40;"
     position="0 -122.3 -5"></a-entity>
   <a-entity v-if="ascIsClicked" sound="src:#elevator; autoplay: true ; maxDistance: 300; loop: true; volume: 60;"
     position="0 -122.3 -5"></a-entity>
