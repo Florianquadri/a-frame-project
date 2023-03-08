@@ -12,8 +12,8 @@ export default defineConfig(({command, mode}) => {
           isCustomElement: tag => tag.startsWith('a-')
         },
       },
-    })],
-    base:'/florian/'
+    })]/* ,
+    base:'/florian/' */
   };
 
   return config;
