@@ -72,6 +72,7 @@ function scubaMaskClicked($event) {
       <a-asset-item id="spaceshipInterior" src="assets/spaceshipInterior4.glb"></a-asset-item>
       <a-asset-item id="fox" src="assets/victory_final.glb"></a-asset-item>
       <a-asset-item id="arrow-point" src="assets/arrow_point.glb"></a-asset-item>
+      <a-asset-item id="redFish" src="assets/red_fish.glb"></a-asset-item>
       <a-asset-item id="wave-sound" response-type="arraybuffer" src="assets/ocean.mp3" preload="auto"></a-asset-item>
       <a-asset-item id="elevator" response-type="arraybuffer" src="assets/elevator.mp3" preload="auto"></a-asset-item>
       <a-asset-item id="star-song" response-type="arraybuffer" src="assets/starsSong.mp3" preload="auto"></a-asset-item>
