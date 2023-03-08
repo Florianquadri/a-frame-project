@@ -68,7 +68,7 @@ setTimeout(()=>{
         camera
         position="0 1.65 0"
       >
-      <a-entity v-if="view=='underwater'" position="0 -0.26 -0.19" rotation="0 180 0" scale="6 6 6" gltf-model="#scuba"></a-entity>
+      <a-entity v-if="view=='underwater'" position="0 -0.26 -0.17" rotation="0 180 0" scale="4.8 6 6" gltf-model="#scuba"></a-entity>
 <!--       <a-entity v-if="view=='underwater'" position="0.01 -0.332 -0.28" rotation="0 180 0" scale="8 8 8" gltf-model="#scuba"></a-entity> -->
         <a-entity
           geometry="primitive: circle; radius: 0.0003;"

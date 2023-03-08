@@ -19,7 +19,7 @@ function backToTheBeach(){
       <TheNavMeshSky scene="sky" />
       <a-entity position="25 -1 -57.6" rotation="0 0 0" scale="4 4 4" gltf-model="#starsView"></a-entity>
       <a-entity position="24 1.8 -58.6" rotation="0 90 0" scale="0.1 0.1 0.1" gltf-model="#skyship"></a-entity>
-      <a-entity id="planets" position="0 1 0">
+      <a-entity id="planets" position="0 0.6 0">
         <a-entity position="28 2 -58.6" rotation="0 90 0" scale="0.2 0.2 0.2" gltf-model="#moon"></a-entity>
       <a-entity position="28.874 1.942 -49.011" rotation="0 90 0" scale="0.3 0.3 0.3" gltf-model="#saturne"></a-entity>
       <a-entity position="28.117 1.989 -53.065" rotation="0 90 0" scale="0.4 0.4 0.4" gltf-model="#jupiter"></a-entity>
