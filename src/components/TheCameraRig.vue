@@ -68,12 +68,13 @@ setTimeout(()=>{
         camera
         position="0 1.65 0"
       >
-      <a-entity v-if="view=='underwater'" position="0.01 -0.332 -0.28" rotation="0 180 0" scale="8 8 8" gltf-model="#scuba"></a-entity>
+      <a-entity v-if="view=='underwater'" position="0 -0.26 -0.19" rotation="0 180 0" scale="6 6 6" gltf-model="#scuba"></a-entity>
+<!--       <a-entity v-if="view=='underwater'" position="0.01 -0.332 -0.28" rotation="0 180 0" scale="8 8 8" gltf-model="#scuba"></a-entity> -->
         <a-entity
           geometry="primitive: circle; radius: 0.0003;"
           material="shader: flat; color: white;"
           cursor
-          raycaster="far: 25; objects: [clickable]; showLine: false;"
+          raycaster="far: 15; objects: [clickable]; showLine: false;"
           position="0 0 -0.1"
           disable-in-vr="component: raycaster; disableInAR: false;"
           hide-in-vr="hideInAR: false"
@@ -95,7 +96,7 @@ setTimeout(()=>{
         id="hand-right"
         hand-controls="hand: right"
         laser-controls="hand: right"
-        raycaster="far: 2; objects: [clickable]; showLine: true;"
+        raycaster="far: 30; objects: [clickable]; showLine: true;"
       ></a-entity>
 
   </a-entity>
